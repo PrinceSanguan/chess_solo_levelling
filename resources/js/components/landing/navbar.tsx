@@ -64,7 +64,7 @@ export default function Navbar() {
 
     return (
         <div
-            className="shadow-md"
+            className="fixed top-0 left-0 z-50 w-full shadow-md"
             ref={navRef}
             style={{
                 background: 'linear-gradient(90deg, #0a192f 0%, #081523 100%)',
@@ -73,12 +73,20 @@ export default function Navbar() {
         >
             <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
                 <div className="flex items-center space-x-3">
-                    {/* Circular Logo Placeholder */}
-                    <div className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-blue-500 bg-gradient-to-br from-blue-900 to-blue-800 shadow-lg">
+                    {/* Circular Logo */}
+                    <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-blue-500 bg-gradient-to-br from-blue-900 to-blue-800 shadow-lg">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
-                        <img src="/assets/images/navbar-logo.jpg" alt="Logo" className="h-8 w-8 rounded-full object-cover" />
+                        <img
+                            src="/assets/images/navbar-logo.jpg"
+                            alt="Logo"
+                            className="h-8 w-8 rounded-full object-cover"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = 'https://via.placeholder.com/80';
+                            }}
+                        />
                     </div>
-                    <span className="text-xl font-bold text-blue-300">SoloChess Leveling</span>
+                    <span className="text-lg font-bold text-blue-300 md:text-xl">SoloChess Leveling</span>
                 </div>
 
                 {/* Desktop Menu */}
@@ -105,7 +113,7 @@ export default function Navbar() {
                         <Button
                             variant="ghost"
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="p-2 text-blue-300 hover:bg-blue-900/40 hover:text-blue-200"
+                            className="p-1 text-blue-300 hover:bg-blue-900/40 hover:text-blue-200"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +151,7 @@ export default function Navbar() {
                     background: 'linear-gradient(180deg, #0a192f 0%, #081523 100%)',
                 }}
             >
-                <div className="space-y-3 px-4 py-2">
+                <div className="space-y-1 px-4 py-2">
                     <Link href="/learn" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
                         Learn
                     </Link>

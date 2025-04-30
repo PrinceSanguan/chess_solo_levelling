@@ -72,7 +72,7 @@ export default function Hero() {
     return (
         <div
             ref={heroRef}
-            className="relative overflow-hidden px-4 py-16 sm:py-20 md:px-6 md:py-24"
+            className="relative overflow-hidden px-4 pt-24 pb-16 sm:py-20 md:px-6 md:pt-32 md:pb-24"
             style={{
                 background: 'linear-gradient(120deg, #0a192f 0%, #051224 100%)',
                 color: '#fff',
