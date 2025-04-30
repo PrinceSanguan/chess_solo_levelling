@@ -1,3 +1,4 @@
+import ChessPuzzle from '@/components/chess/chess-puzzle';
 import Coach from '@/components/landing/coach';
 import Features from '@/components/landing/features';
 import Footer from '@/components/landing/footer';
@@ -15,8 +16,12 @@ export default function Welcome() {
     const ctaRef = useRef<HTMLDivElement>(null);
     const supportRef = useRef<HTMLDivElement>(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [puzzleSolved, setPuzzleSolved] = useState(false);
 
     useEffect(() => {
+        // Only run GSAP animations after puzzle is solved
+        if (!puzzleSolved) return;
+
         // Import GSAP dynamically
         const loadGSAP = async () => {
             const gsapModule = await import('gsap');
@@ -110,14 +115,24 @@ export default function Welcome() {
 
         // Cleanup ScrollTrigger on unmount
         return () => {
+            if (!puzzleSolved) return;
+
             const cleanup = async () => {
-                const scrollTriggerModule = await import('gsap/ScrollTrigger');
-                const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
-                ScrollTrigger.getAll().forEach((t) => t.kill());
+                try {
+                    const scrollTriggerModule = await import('gsap/ScrollTrigger');
+                    const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+                    ScrollTrigger.getAll().forEach((t) => t.kill());
+                } catch (error) {
+                    console.error('Error during cleanup:', error);
+                }
             };
             cleanup();
         };
-    }, []);
+    }, [puzzleSolved]);
+
+    const handlePuzzleSolved = () => {
+        setPuzzleSolved(true);
+    };
 
     return (
         <>
@@ -132,35 +147,39 @@ export default function Welcome() {
                 <link href="https://fonts.bunny.net/css?family=playfair-display:700,900" rel="stylesheet" />
             </Head>
 
-            <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gradient-to-b from-[#05101f] to-[#0a1a2f]">
-                <div className="pointer-events-none absolute inset-0 bg-[url('/images/chess-bg-pattern.svg')] bg-repeat opacity-5"></div>
+            {!puzzleSolved && <ChessPuzzle onSolve={handlePuzzleSolved} />}
 
-                <Navbar />
+            {puzzleSolved && (
+                <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gradient-to-b from-[#05101f] to-[#0a1a2f]">
+                    <div className="pointer-events-none absolute inset-0 bg-[url('/images/chess-bg-pattern.svg')] bg-repeat opacity-5"></div>
 
-                <main className={`flex-grow transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-                    <Hero />
+                    <Navbar />
 
-                    <div ref={featuresRef} className="relative z-10">
-                        <Features />
-                    </div>
+                    <main className={`flex-grow transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+                        <Hero />
 
-                    <Free />
+                        <div ref={featuresRef} className="relative z-10">
+                            <Features />
+                        </div>
 
-                    <div ref={coachRef} className="relative z-10">
-                        <Coach />
-                    </div>
+                        <Free />
 
-                    <div ref={ctaRef} className="relative z-10 mx-auto my-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <Sample />
-                    </div>
+                        <div ref={coachRef} className="relative z-10">
+                            <Coach />
+                        </div>
 
-                    <div ref={supportRef} className="relative z-10">
-                        <Support />
-                    </div>
+                        <div ref={ctaRef} className="relative z-10 mx-auto my-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+                            <Sample />
+                        </div>
 
-                    <Footer />
-                </main>
-            </div>
+                        <div ref={supportRef} className="relative z-10">
+                            <Support />
+                        </div>
+
+                        <Footer />
+                    </main>
+                </div>
+            )}
         </>
     );
 }
