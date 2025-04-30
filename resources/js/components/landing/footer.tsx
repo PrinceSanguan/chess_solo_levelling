@@ -201,7 +201,7 @@ export default function Footer() {
                     <div className="hidden grid-cols-5 gap-8 md:grid">
                         <div className={`transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <Link href="/" className="inline-block">
-                                <div className="mb-6 text-xl font-bold text-white">ChessChamp</div>
+                                <div className="mb-6 text-xl font-bold text-white">SoloLevelingChess</div>
                             </Link>
                             <p className="mb-6 text-sm text-gray-400">
                                 Elevating chess education through innovative learning tools and expert guidance for players at every level.
@@ -320,7 +320,7 @@ export default function Footer() {
                 >
                     <div className="flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                            <div className="text-gray-400">© 2025 ChessChamp. All rights reserved.</div>
+                            <div className="text-gray-400">© 2025 SoloLevelingChess. All rights reserved.</div>
                             <div className="hidden h-1 w-1 rounded-full bg-gray-500 md:block"></div>
                             <Link href="#" className="text-gray-400 hover:text-blue-300">
                                 Terms
