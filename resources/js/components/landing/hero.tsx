@@ -121,7 +121,7 @@ export default function Hero() {
                     </h1>
                     <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-300 lg:mx-0"></div>
                     <p className="mb-6 text-lg text-gray-300">
-                        Master the art of chess through personalized coaching, strategic training, and deliberate practice. Join our community of
+                        Masters the art of chess through personalized coaching, strategic training, and deliberate practice. Join our community of
                         players and take your game to the next level.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
