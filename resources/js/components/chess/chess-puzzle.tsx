@@ -160,7 +160,7 @@ export default function ChessPuzzle({ onSolve }: ChessPuzzleProps) {
                 </div>
 
                 <div className="mt-4 text-center text-sm text-gray-400">
-                    <p>Drag the pieces to make your move. White to play and mate in one.</p>
+                    <p>Drags the pieces to make your move. White to play and mate in one.</p>
                 </div>
             </div>
 
