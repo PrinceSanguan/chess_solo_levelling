@@ -91,17 +91,17 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden items-center space-x-6 md:flex">
+                    <Link href="/" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                        Home
+                    </Link>
                     <Link href="/learn" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
                         Learn
                     </Link>
-                    <Link href="/classes" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link href="/live-classes" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
                         Live Classes
                     </Link>
-                    <Link href="/coaches" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link href="/coaching" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
                         Coaches
-                    </Link>
-                    <Link href="/pricing" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
-                        Pricing
                     </Link>
                     <Link href="/account" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
                         My Account
@@ -152,17 +152,17 @@ export default function Navbar() {
                 }}
             >
                 <div className="space-y-1 px-4 py-2">
+                    <Link href="/" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                        Home
+                    </Link>
                     <Link href="/learn" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
                         Learn
                     </Link>
-                    <Link href="/classes" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link href="/live-classes" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
                         Live Classes
                     </Link>
-                    <Link href="/coaches" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link href="/coaching" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
                         Coaches
-                    </Link>
-                    <Link href="/pricing" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
-                        Pricing
                     </Link>
                     <Link href="/account" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
                         My Account
