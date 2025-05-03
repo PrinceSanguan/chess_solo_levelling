@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Link } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Navbar() {
@@ -91,19 +91,44 @@ export default function Navbar() {
 
                 {/* Desktop Menu */}
                 <div className="hidden items-center space-x-6 md:flex">
-                    <Link href="/" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link
+                        href="/"
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === '/' ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
                         Home
                     </Link>
-                    <Link href="/learn" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link
+                        href="/learn"
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === '/learn' ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
                         Learn
                     </Link>
-                    <Link href="/live-classes" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link
+                        href="/live-classes"
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === '/live-classes' ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
                         Live Classes
                     </Link>
-                    <Link href="/coaching" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link
+                        href="/coaching"
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === '/coaching' ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
                         Coaches
                     </Link>
-                    <Link href="/account" className="nav-item text-gray-300 transition-colors duration-200 hover:text-blue-400">
+                    <Link
+                        href={route('auth.login')}
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === route('auth.login') ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
                         My Account
                     </Link>
                 </div>
@@ -152,19 +177,48 @@ export default function Navbar() {
                 }}
             >
                 <div className="space-y-1 px-4 py-2">
-                    <Link href="/" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link
+                        href="/"
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === '/' ? 'bg-blue-900/40 text-blue-300' : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
                         Home
                     </Link>
-                    <Link href="/learn" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link
+                        href="/learn"
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === '/learn' ? 'bg-blue-900/40 text-blue-300' : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
                         Learn
                     </Link>
-                    <Link href="/live-classes" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link
+                        href="/live-classes"
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === '/live-classes'
+                                ? 'bg-blue-900/40 text-blue-300'
+                                : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
                         Live Classes
                     </Link>
-                    <Link href="/coaching" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link
+                        href="/coaching"
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === '/coaching' ? 'bg-blue-900/40 text-blue-300' : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
                         Coaches
                     </Link>
-                    <Link href="/account" className="block rounded-lg px-4 py-2 text-gray-300 hover:bg-blue-900/40 hover:text-blue-300">
+                    <Link
+                        href={route('auth.login')}
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === route('auth.login')
+                                ? 'bg-blue-900/40 text-blue-300'
+                                : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
                         My Account
                     </Link>
                     <div className="flex space-x-2 py-2">

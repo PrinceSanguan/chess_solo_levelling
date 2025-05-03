@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { Link } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 
@@ -39,43 +38,27 @@ export default function Footer() {
     // Footer links organized by section
     const footerLinks = [
         {
-            title: 'About Us',
+            title: 'Learn Chess',
             links: [
-                { text: 'Our Story', href: '/about' },
-                { text: 'Mission & Vision', href: '/mission' },
-                { text: 'Team', href: '/team' },
-                { text: 'Careers', href: '/careers' },
-                { text: 'Press', href: '/press' },
-            ],
-        },
-        {
-            title: 'Resources',
-            links: [
-                { text: 'FAQ', href: '/faq' },
-                { text: 'Help Center', href: '/help' },
-                { text: 'Getting Started', href: '/start' },
-                { text: 'Tutorials', href: '/tutorials' },
+                { text: 'Video Lessons', href: '/learn' },
+                { text: 'Live Classes', href: '/live-classes' },
+                { text: 'Chess Coaches', href: '/coaching' },
                 { text: 'Chess Dictionary', href: '/dictionary' },
             ],
         },
         {
-            title: 'Content',
+            title: 'Support',
             links: [
-                { text: 'Blog', href: '/blog' },
-                { text: 'Videos', href: '/videos' },
-                { text: 'Chess News', href: '/news' },
-                { text: 'Tournaments', href: '/tournaments' },
-                { text: 'Interviews', href: '/interviews' },
+                { text: 'FAQ', href: '/faq' },
+                { text: 'Contact Us', href: '/contact' },
+                { text: 'Help Center', href: '/help' },
             ],
         },
         {
             title: 'Legal',
             links: [
-                { text: 'Terms of Service', href: '/terms' },
-                { text: 'Privacy Policy', href: '/privacy' },
-                { text: 'Cookie Policy', href: '/cookies' },
-                { text: 'Copyright', href: '/copyright' },
-                { text: 'Accessibility', href: '/accessibility' },
+                { text: 'Terms', href: '/terms' },
+                { text: 'Privacy', href: '/privacy' },
             ],
         },
     ];
@@ -149,56 +132,11 @@ export default function Footer() {
                 }}
             ></div>
 
-            {/* Pre-footer: Newsletter & App Download */}
-            <div className="relative z-10 border-b border-blue-900/20">
-                <div
-                    className={`container mx-auto px-4 py-12 transition-all duration-700 ${
-                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
-                >
-                    <div className="grid gap-8 md:grid-cols-2">
-                        {/* Newsletter */}
-                        <div className="rounded-lg bg-blue-900/10 p-6">
-                            <h3 className="mb-3 text-xl font-semibold text-white">Stay Updated</h3>
-                            <p className="mb-4 text-sm text-gray-400">Subscribe to our newsletter for chess tips, updates, and exclusive offers.</p>
-                            <div className="flex">
-                                <input
-                                    type="email"
-                                    placeholder="Your email address"
-                                    className="flex-1 rounded-l-lg border border-blue-800/60 bg-blue-950/80 px-4 py-2 text-white placeholder-blue-500/70 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
-                                />
-                                <Button className="rounded-l-none bg-blue-600 hover:bg-blue-500">Subscribe</Button>
-                            </div>
-                        </div>
-
-                        {/* App Download */}
-                        <div className="rounded-lg bg-blue-900/10 p-6">
-                            <h3 className="mb-3 text-xl font-semibold text-white">Get Our App</h3>
-                            <p className="mb-4 text-sm text-gray-400">Download our mobile app for a better experience on the go.</p>
-                            <div className="flex flex-wrap gap-2">
-                                <Button variant="outline" className="border-blue-700 text-blue-300 hover:bg-blue-900/50 hover:text-blue-200">
-                                    <svg viewBox="0 0 24 24" className="mr-2 h-5 w-5 fill-current">
-                                        <path d="M17.9,19.9L18,20V3.9L18,4A2,2 0 0,0 16,2H8A2,2 0 0,0 6,4V20A2,2 0 0,0 8,22H16C17.86,21.96 17.9,20 17.9,19.9M16,4V6H8V4H16M8,8H16V14H8V8M8,20V16H16V20H8Z" />
-                                    </svg>
-                                    Google Play
-                                </Button>
-                                <Button variant="outline" className="border-blue-700 text-blue-300 hover:bg-blue-900/50 hover:text-blue-200">
-                                    <svg viewBox="0 0 24 24" className="mr-2 h-5 w-5 fill-current">
-                                        <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" />
-                                    </svg>
-                                    App Store
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             {/* Main Footer: Links */}
             <div className="relative z-10">
                 <div className="container mx-auto px-4 py-10">
                     {/* Desktop Footer */}
-                    <div className="hidden grid-cols-5 gap-8 md:grid">
+                    <div className="hidden grid-cols-4 gap-8 md:grid">
                         <div className={`transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <Link href="/" className="inline-block">
                                 <div className="mb-6 text-xl font-bold text-white">SoloLevelingChess</div>
@@ -246,7 +184,7 @@ export default function Footer() {
                     <div className="md:hidden">
                         <div className={`mb-8 transition-all duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
                             <Link href="/" className="inline-block">
-                                <div className="mb-4 text-xl font-bold text-white">ChessChamp</div>
+                                <div className="mb-4 text-xl font-bold text-white">Solo Chess Leveling</div>
                             </Link>
                             <p className="mb-4 text-sm text-gray-400">
                                 Elevating chess education through innovative learning tools and expert guidance for players at every level.
@@ -312,39 +250,18 @@ export default function Footer() {
             </div>
 
             {/* Sub-footer: Contact & Copyright */}
-            <div className="relative z-10 border-t border-blue-900/20 py-6">
-                <div
-                    className={`container mx-auto px-4 transition-all delay-500 duration-700 ${
-                        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                    }`}
-                >
-                    <div className="flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                            <div className="text-gray-400">© 2025 SoloLevelingChess. All rights reserved.</div>
-                            <div className="hidden h-1 w-1 rounded-full bg-gray-500 md:block"></div>
-                            <Link href="#" className="text-gray-400 hover:text-blue-300">
-                                Terms
-                            </Link>
-                            <div className="hidden h-1 w-1 rounded-full bg-gray-500 md:block"></div>
-                            <Link href="#" className="text-gray-400 hover:text-blue-300">
-                                Privacy
-                            </Link>
-                            <div className="hidden h-1 w-1 rounded-full bg-gray-500 md:block"></div>
-                            <Link href="#" className="text-gray-400 hover:text-blue-300">
-                                Cookies
-                            </Link>
-                        </div>
-
-                        <div className="flex items-center gap-4">
-                            <Link href="/contact" className="text-gray-400 hover:text-blue-300">
-                                Contact Support
-                            </Link>
-                            <div className="flex items-center gap-1">
-                                <span className="flex h-2 w-2 rounded-full bg-green-500"></span>
-                                <span className="text-gray-400">Online Support Available</span>
-                            </div>
-                        </div>
-                    </div>
+            <div className="flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
+                <div className="text-gray-400">© 2025 SoloLevelingChess. All rights reserved.</div>
+                <div className="flex items-center gap-4">
+                    <Link href="/terms" className="text-gray-400 hover:text-blue-300">
+                        Terms
+                    </Link>
+                    <Link href="/privacy" className="text-gray-400 hover:text-blue-300">
+                        Privacy
+                    </Link>
+                    <Link href="/contact" className="text-gray-400 hover:text-blue-300">
+                        Contact
+                    </Link>
                 </div>
             </div>
         </footer>
