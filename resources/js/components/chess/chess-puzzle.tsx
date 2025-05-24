@@ -14,8 +14,22 @@ export default function ChessPuzzle({ onSolve }: ChessPuzzleProps) {
     const [chess] = useState(new Chess('rnbqkbnr/ppppp2p/8/5pp1/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3'));
     const [message, setMessage] = useState<string>('Find the winning move for white - Mate in 1');
     const [showHint, setShowHint] = useState<boolean>(false);
-    const [solved, setSolved] = useState<boolean>(false);
     const [ground, setGround] = useState<any>(null);
+
+    const PUZZLE_SOLVED_KEY = 'chess_puzzle_solved';
+
+    const [solved, setSolved] = useState<boolean>(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem(PUZZLE_SOLVED_KEY) === 'true';
+        }
+        return false;
+    });
+
+    useEffect(() => {
+        if (solved) {
+            onSolve();
+        }
+    }, [solved, onSolve]);
 
     // The correct move is queen (Q) from d1 to h5: d1-h5#
     const correctMove = {
@@ -93,6 +107,7 @@ export default function ChessPuzzle({ onSolve }: ChessPuzzleProps) {
         if (from === correctMove.from && to === correctMove.to) {
             setMessage('Correct! That\'s the "Scholar\'s Mate" checkmate in one move.');
             setSolved(true);
+            localStorage.setItem(PUZZLE_SOLVED_KEY, 'true');
 
             // Success celebration
             setTimeout(() => {
@@ -165,7 +180,7 @@ export default function ChessPuzzle({ onSolve }: ChessPuzzleProps) {
             </div>
 
             {/* Add custom styles for chessground */}
-            <style jsx global>{`
+            <style jsx="global">{`
                 /* Override chessground styles for better appearance */
                 .cg-wrap {
                     width: 100%;

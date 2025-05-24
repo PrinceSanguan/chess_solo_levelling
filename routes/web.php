@@ -17,6 +17,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/learn', [HomeController::class, 'learn'])->name('learn');
 Route::get('/live-classes', [HomeController::class, 'liveClasses'])->name('live-classes');
 Route::get('/coaching', [HomeController::class, 'coaching'])->name('coaching');
+Route::get('/study', [HomeController::class, 'study'])->name('study');
+Route::get('/study/rook', [HomeController::class, 'rookStudy'])->name('rook');
 
 /*
 |--------------------------------------------------------------------------

@@ -124,6 +124,14 @@ export default function Navbar() {
                         Coaches
                     </Link>
                     <Link
+                        href="/study"
+                        className={`nav-item transition-colors duration-200 ${
+                            usePage().url === '/study' ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
+                        }`}
+                    >
+                        Study
+                    </Link>
+                    <Link
                         href={route('auth.login')}
                         className={`nav-item transition-colors duration-200 ${
                             usePage().url === route('auth.login') ? 'font-semibold text-blue-400' : 'text-gray-300 hover:text-blue-400'
@@ -210,6 +218,14 @@ export default function Navbar() {
                         }`}
                     >
                         Coaches
+                    </Link>
+                    <Link
+                        href="/study"
+                        className={`block rounded-lg px-4 py-2 ${
+                            usePage().url === '/study' ? 'bg-blue-900/40 text-blue-300' : 'text-gray-300 hover:bg-blue-900/40 hover:text-blue-300'
+                        }`}
+                    >
+                        Study
                     </Link>
                     <Link
                         href={route('auth.login')}

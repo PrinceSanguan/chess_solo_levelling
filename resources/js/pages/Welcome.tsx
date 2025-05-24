@@ -16,7 +16,13 @@ export default function Welcome() {
     const ctaRef = useRef<HTMLDivElement>(null);
     const supportRef = useRef<HTMLDivElement>(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [puzzleSolved, setPuzzleSolved] = useState(false);
+
+    const [puzzleSolved, setPuzzleSolved] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('chess_puzzle_solved') === 'true';
+        }
+        return false;
+    });
 
     useEffect(() => {
         // Only run GSAP animations after puzzle is solved

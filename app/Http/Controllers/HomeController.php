@@ -31,4 +31,14 @@ class HomeController extends Controller
     {
         return Inertia::render('Coaching');
     }
+
+    public function study()
+    {
+        return Inertia::render('Study');
+    }
+
+    public function rookStudy()
+    {
+        return Inertia::render('RookStudy');
+    }
 }
